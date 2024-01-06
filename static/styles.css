@@ -1,0 +1,16 @@
+.custom-icon {
+    text-align: center;
+    color: forestgreen;
+    line-height: 30px;
+}
+
+img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.img_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
