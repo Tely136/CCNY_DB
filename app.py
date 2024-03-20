@@ -1,10 +1,23 @@
 from tkinter import Image
 from flask import Flask, render_template, send_from_directory, request, redirect
+from flask_migrate import Migrate
+from models import db, Site
 import os
 from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+
+# db.init_app(app)
+#
+# with app.app_context():
+#     db.create_all()
+
+migrate = Migrate(app, db)
+
+db.init_app(app)
+migrate.init_app(app, db)
 
 db_path = 'db'
 db_dict = {}
